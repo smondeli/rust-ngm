@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{{project_short_name}}</title>
+    <link rel="stylesheet" href="static/css/styles.css" type="text/css">
+</head>
+<body>
+
+<div class="title" id="market">
+    <img class="title_img" src="static/images/logo_transparent.png" height="100%"/>
+    <p class="title_p">{{project_name}}</p>
+    <div class="right_user_div">
+        <img class="title_img" src="static/images/user.svg" height="100%"/>
+        <p float="left" height="100%" class="right_user_div_p">
+            Hello, User
+        </p>
+        <a style="padding-left: 10px">
+            <img style="float: right" src="static/images/logout.svg" height="100%" title="Log out"/>
+        </a>
+    </div>
+</div>
+
+<div class="header">Market Place</div>
+<div class="main_div">
+    <div class="content_div">
+        <div id="error_header"
+             style="color: red; font-size: 20; display: inline; margin-left: -60px;"></div>
+        <div class="left_navigation" id="left-nav">
+            <div class="header" style="text-align: left;font-size: large;">
+                Category
+            </div>
+            <div>
+                <button class="category_List">All</button>
+            </div>
+            {{#each categories}}
+                <div>
+                    <button class="category_List">{{this}}</button>
+                </div>
+            {{/each}}
+        </div>
+        <div class="market_listing" id="listing">
+            {{#each items}}
+                <div class="item">
+                    <div class="item-image">
+                        <img src="{{this.image_path}}" />
+                    </div>
+                    <div class="item-price">
+                        {{this.name}}
+                    </div>
+                    <div class="item-details">
+                        ${{this.price}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    Powered by <a href="https://www.oracle.com/cloud/">OCI Rust App Container</a>
+</div>
+
+</body>
+</html>
